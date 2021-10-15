@@ -1,0 +1,124 @@
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 350px;
+  background-color: #baccc6;
+  padding: 30px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  .level-1,
+  .level-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .level-2 {
+    margin-bottom: 50px;
+  }
+  .level-3 {
+    margin-bottom: 20px;
+    span {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    textarea {
+      outline-style: none;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    span {
+      &.marks {
+        color: red;
+        cursor: pointer;
+        // background-color: royalblue;
+      }
+      //   color: red;
+    }
+  }
+
+  .level-4 {
+    .level-4-title {
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      i {
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    margin-top: 20px;
+    .products {
+      display: none;
+      &.active {
+        display: block;
+      }
+      .product {
+        margin: 10px 0px;
+        display: flex;
+        .left {
+          width: 80px;
+          height: 60px;
+          margin-right: 10px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 5px;
+          }
+        }
+
+        .right {
+          display: flex;
+          flex-direction: column;
+          .title {
+            display: inline-block;
+            margin-bottom: 10px;
+          }
+          .quantity-cont {
+            .quantity {
+              display: inline-block;
+              border: 1px solid grey;
+              margin-right: 10px;
+              width: 50%;
+              padding: 5px;
+              span {
+                padding: 10px;
+                &:nth-child(odd) {
+                  cursor: pointer;
+                }
+              }
+            }
+            .remove {
+              display: inline-block;
+              margin-left: 10px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  button {
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #2a9d8f;
+    color: white;
+    font-size: 18px;
+
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
