@@ -10,9 +10,7 @@ const Topbar = () => {
   return (
     <div className="topbar">
       <div className={active ? 'sidebar active' : 'sidebar'}>
-        <button onClick={() => setActive(false)}>
-          <i className="fas fa-window-close"></i>
-        </button>
+        <i onClick={() => setActive(false)} className="fas fa-window-close"></i>
       </div>
       <Cart />
       <div className="topbar-container">

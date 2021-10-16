@@ -108,8 +108,24 @@
     margin-right: 0;
     .social {
       flex-direction: column;
+      // padding: 8px 16px;
       .left {
+        width: 100%;
         margin-bottom: 20px;
+        input {
+          width: 70%;
+          padding: 10px;
+          font-size: 15px;
+        }
+        button {
+          width: 30%;
+          font-size: 15px;
+        }
+      }
+      .right {
+        i {
+          margin-right: 20px;
+        }
       }
     }
     .footer-details {
