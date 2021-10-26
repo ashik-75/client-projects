@@ -8,10 +8,7 @@ import { Link } from 'react-router-dom';
 
 const useStyle = makeStyles({
   nav: {
-    // height: 100,
-    // display: 'flex',
-    // // alignItems: 'center',
-    // justifyContent: 'center',
+    // marginBottom: 200,
   },
   container: {
     display: 'flex',
@@ -31,7 +28,7 @@ const useStyle = makeStyles({
 const Navbar = () => {
   const classes = useStyle();
   return (
-    <AppBar position="sticky" className={classes.nav}>
+    <AppBar position="fixed" className={classes.nav}>
       <Toolbar className={classes.container}>
         <div className={classes.left}>
           <IconButton

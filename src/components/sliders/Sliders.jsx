@@ -33,7 +33,7 @@ const Sliders = () => {
     // easing: 'linear',
   };
   return (
-    <div className="slider-container">
+    <div className="slider-container" style={{ paddingTop: 100 }}>
       <Slide {...properties}>
         {slideImages.map((slideImage, index) => (
           <div className="each-slide" key={index}>

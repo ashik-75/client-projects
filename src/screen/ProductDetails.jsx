@@ -21,6 +21,7 @@ const useStyle = makeStyles((theme) => ({
   cont: {
     padding: '50px',
     height: '100vh',
+    transition: 'none',
   },
   img: {
     width: '100%',
@@ -52,7 +53,7 @@ const ProductDetails = () => {
 
   const classes = useStyle();
   return (
-    <div className={classes.cont}>
+    <div className={classes.cont} style={{ paddingTop: 100 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Link to="/">Go Back</Link>
