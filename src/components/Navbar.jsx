@@ -28,7 +28,7 @@ const useStyle = makeStyles({
 const Navbar = () => {
   const classes = useStyle();
   return (
-    <AppBar position="fixed" className={classes.nav}>
+    <AppBar position="sticky" className={classes.nav}>
       <Toolbar className={classes.container}>
         <div className={classes.left}>
           <IconButton

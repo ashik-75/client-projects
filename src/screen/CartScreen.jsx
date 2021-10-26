@@ -57,7 +57,7 @@ const CartScreen = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
-        <Grid item xs={8}>
+        <Grid item xs={12} lg={8}>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableBody>
@@ -106,7 +106,7 @@ const CartScreen = () => {
             </Table>
           </TableContainer>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} lg={4}>
           <Card>
             <Typography variant="h4" sx={{ p: 3 }}>
               Total Item({cart.reduce((acc, cur) => acc + cur.qty, 0)})

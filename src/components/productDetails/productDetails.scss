@@ -5,6 +5,9 @@
   padding: 50px;
   .productDetails-container {
     display: flex;
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
     gap: 30px;
     .left-image {
       // padding: 40px;

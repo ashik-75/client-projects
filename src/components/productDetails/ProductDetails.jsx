@@ -1,4 +1,6 @@
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import './productDetails.scss';
 
 const images = [
@@ -19,12 +21,22 @@ const images = [
 const ProductDetails = () => {
   const [activeImage, setActiveImage] = useState([true, false, false]);
   const [activeImageUrl, setActiveImageUrl] = useState(images[0].url);
+  const [qty, setQty] = useState(1);
+  const params = useParams();
+  const history = useHistory();
+  const id = params.id;
   const handleActiveImage = (index) => {
     const newdata = activeImage.map((dt, ind) =>
       ind === index ? true : false
     );
 
     setActiveImage(newdata);
+  };
+
+  const handleCart = () => {
+    const dt = `/product/${id}/cart?qty=${qty}`;
+    // console.log('cart edde', dt);
+    history.push(dt);
   };
   return (
     <div className="productDetails">
@@ -34,7 +46,7 @@ const ProductDetails = () => {
           <div className="image-sub-container">
             <img
               className={activeImage[0] && 'active'}
-              onClick={() => {
+              onMouseOver={() => {
                 handleActiveImage(0);
                 setActiveImageUrl(images[0].url);
               }}
@@ -43,7 +55,7 @@ const ProductDetails = () => {
             />
             <img
               className={activeImage[1] && 'active'}
-              onClick={() => {
+              onMouseOver={() => {
                 handleActiveImage(1);
                 setActiveImageUrl(images[1].url);
               }}
@@ -51,7 +63,7 @@ const ProductDetails = () => {
               alt=""
             />
             <img
-              onClick={() => {
+              onMouseOver={() => {
                 handleActiveImage(2);
                 setActiveImageUrl(images[2].url);
               }}
@@ -91,7 +103,22 @@ const ProductDetails = () => {
 
           <div className="quantity">
             <span>Quantity</span>
-            <input type="number" value="1" /> <button>add to cart</button>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+              {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={qty}
+                // label="Number"
+                onChange={(e) => setQty(e.target.value)}
+                // onChange={handleChange}
+              >
+                {[...Array(10).keys()].map((x) => (
+                  <MenuItem value={x + 1}>{x + 1}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>{' '}
+            <button onClick={handleCart}>add to cart</button>
           </div>
         </div>
       </div>

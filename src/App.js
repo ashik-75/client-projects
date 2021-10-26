@@ -5,10 +5,11 @@ import Footer from './components/footer/Footer';
 import ProductPage from './components/productPage/ProductPage';
 import Mui from './screen/mui/Mui';
 import Navbar from './components/Navbar';
-import ProductDetails from './screen/ProductDetails';
+// import ProductDetails from './screen/ProductDetails';
 import AddProduct from './screen/AddProduct';
 import CartScreen from './screen/CartScreen';
 import ScrollTop from './components/ScrollTop';
+import ProductDetails from './components/productDetails/ProductDetails';
 
 const App = () => {
   return (
