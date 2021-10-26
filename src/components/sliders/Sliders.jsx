@@ -1,45 +1,68 @@
 import { useState } from 'react';
 import './sliders.scss';
-const topRatedData = [1, 2, 3, 4];
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 const Sliders = () => {
-  const [slide, setSlide] = useState(0);
-  const length = topRatedData.length;
+  const slideImages = [
+    {
+      url: 'https://images.unsplash.com/photo-1573246123716-6b1782bfc499?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60',
+      caption: 'image-1',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1471943038886-87c772c31367?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60',
+      caption: 'image-2',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZydWl0c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60',
+      caption: 'image 3',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1526318472351-c75fcf070305?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGZydWl0c3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60',
+      caption: 'image-4',
+    },
+  ];
+  const properties = {
+    duration: 2000,
+    autoplay: true,
+    // transitionDuration: 500,
+    arrows: false,
+    indicators: true,
 
-  const handleSlide = (way) => {
-    way === 'right'
-      ? setSlide(slide < length - 1 ? slide + 1 : slide)
-      : setSlide(slide > 0 ? slide - 1 : slide);
+    // infinite: true,
+    // easing: 'linear',
   };
-
   return (
-    <div className="sliders-content-container">
-      <div
-        className="sliders"
-        style={{ transform: `translateX(-${slide * 100}%)` }}
-      >
-        {topRatedData.map((dt) => (
-          <div
-            className="slider"
-            style={{
-              background: `url('/lens.jpg') no-repeat center center/cover`,
-            }}
-          >
-            <div className="slider-container">
-              <h3>Nicon Camera</h3>
-              <button>Shop Now</button>
+    <div className="slider-container">
+      <Slide {...properties}>
+        {slideImages.map((slideImage, index) => (
+          <div className="each-slide" key={index}>
+            <div
+              className="slide"
+              style={{
+                // width: '100%',
+                backgroundImage: `url(${slideImage.url})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center center',
+                backgroundSize: 'cover',
+              }}
+            >
+              <span className="slider-content">{slideImage.caption}</span>
             </div>
           </div>
         ))}
-      </div>
-      <i
-        className="fas fa-chevron-left icon"
-        onClick={() => handleSlide('left')}
-      ></i>
-      <i
-        className="fas fa-chevron-right icon"
-        onClick={() => handleSlide('right')}
-      ></i>
+      </Slide>
+
+      {/* <div
+        style={{
+          width: 900,
+          height: 300,
+          backgroundImage: `url(${slideImages[2].url})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+        }}
+      ></div> */}
     </div>
   );
 };

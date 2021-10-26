@@ -1,25 +1,81 @@
 .homepage {
-  height: 100vh;
-  background-color: rgb(238, 238, 238);
-  // width: 90%;
-  margin-right: 350px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  .sliders-container {
-    width: 90%;
-    min-height: 300px;
-    background-color: coral;
-    margin: 50px 0px;
+  min-height: 100vh;
+  background-color: white;
+  padding: 50px;
+  background-color: #e9ecef;
+  // margin-right: 350px;
+  .latest-products {
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
   }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: #ddd;
-  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
 
-  @media screen and (max-width: 800px) {
-    margin-right: 0px;
+    .product {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      width: 30%;
+      height: 350px;
+      cursor: pointer;
+      transition: all 1s ease;
+      position: relative;
+      margin-bottom: 5%;
+      &:hover {
+        // opacity: 0.3;
+        img {
+          opacity: 0.1;
+        }
+        .product-details {
+          opacity: 0.1;
+        }
+        .hover-details {
+          display: flex;
+          // z-index: 2;
+          flex-direction: column;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          button {
+            margin-bottom: 20px;
+          }
+        }
+      }
+      img {
+        width: 100%;
+        height: 50%;
+        transition: all 1s ease;
+      }
+      .product-details {
+        padding: 20px;
+        transition: all 1s ease;
+        .product-title {
+          font-size: 20px;
+          letter-spacing: 2px;
+          font-weight: bold;
+        }
+        .product-short-desc {
+          margin: 10px 0px;
+          line-height: 20px;
+        }
+      }
+      .hover-details {
+        position: absolute;
+        display: none;
+        transition: all 1s ease;
+        button {
+          padding: 8px 16px;
+          background-color: black;
+          color: white;
+          // border-radius: 5px;
+          outline-style: none;
+          border: none;
+          cursor: pointer;
+          flex: 18;
+          letter-spacing: 2px;
+        }
+      }
+    }
   }
 }

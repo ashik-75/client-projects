@@ -12,7 +12,7 @@ const Topbar = () => {
       <div className={active ? 'sidebar active' : 'sidebar'}>
         <i onClick={() => setActive(false)} className="fas fa-window-close"></i>
       </div>
-      <Cart />
+      {/* <Cart /> */}
       <div className="topbar-container">
         <div className="top">
           <div className="left">
