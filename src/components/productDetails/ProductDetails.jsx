@@ -3,8 +3,12 @@ import { Button } from '@mui/material';
 import { List, Typography } from '@mui/material';
 import { FormControl, InputLabel, MenuItem, Select, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useEffect } from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { loadProduct } from '../../store/singleProduct';
 import './productDetails.scss';
 
 const images = [
@@ -95,13 +99,11 @@ const ProductDetails = () => {
   const params = useParams();
   const history = useHistory();
   const id = params.id;
-  const handleActiveImage = (index) => {
-    const newdata = activeImage.map((dt, ind) =>
-      ind === index ? true : false
-    );
 
-    setActiveImage(newdata);
-  };
+  const dispatch = useDispatch();
+  const { product, error, loading } = useSelector(
+    (state) => state.singleProduct
+  );
 
   console.log('activeImage', activeImage);
 
@@ -109,92 +111,99 @@ const ProductDetails = () => {
     const dt = `/product/${id}/cart?qty=${qty}`;
     history.push(dt);
   };
+
+  useEffect(() => {
+    dispatch(loadProduct(id));
+  }, []);
+
+  console.log(product);
   return (
     <div className="productDetails">
-      <div className="main-product-details">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Grid container>
-              <Grid item xs={12}>
-                <img
-                  className={classes.mainImage}
-                  src={activeImageUrl}
-                  alt=""
-                />
-              </Grid>
-            </Grid>
-            <Grid container>
-              {activeImage.map((dt, ind) => (
-                <Grid key={ind} xs={4} className={classes.grid}>
+      {error ? (
+        <Typography variant="h4">Error...</Typography>
+      ) : loading ? (
+        <Typography variant="h4">loading...</Typography>
+      ) : (
+        <div className="main-product-details">
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Grid container>
+                <Grid item xs={12}>
                   <img
-                    onMouseOver={() => {
-                      setActiveImageUrl(images[ind].url);
-                      const newData = activeImage.map((dt, i) =>
-                        i === ind ? true : false
-                      );
-                      setActiveImage(newData);
-                    }}
-                    className={`${classes.previewImage} ${
-                      activeImage[ind] && classes.active
-                    }`}
-                    src={images[ind].url}
+                    className={classes.mainImage}
+                    src={activeImageUrl}
                     alt=""
                   />
                 </Grid>
-              ))}
+              </Grid>
+              <Grid container>
+                {activeImage.map((dt, ind) => (
+                  <Grid key={ind} xs={4} className={classes.grid}>
+                    <img
+                      onMouseOver={() => {
+                        setActiveImageUrl(images[ind].url);
+                        const newData = activeImage.map((dt, i) =>
+                          i === ind ? true : false
+                        );
+                        setActiveImage(newData);
+                      }}
+                      className={`${classes.previewImage} ${
+                        activeImage[ind] && classes.active
+                      }`}
+                      src={images[ind].url}
+                      alt=""
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className={classes.title}>{product.title}</div>
+              <Typography variant="body1">{product.description}</Typography>
+              <ul className={classes.list}>
+                <li className={classes.listItem}>
+                  <span>Price</span>
+                  <span>₹{product.price}</span>
+                </li>
+                <li className={classes.listItem}>
+                  <span>Size</span>
+                  <Button variant="outlined">1kg</Button>
+                </li>
+                <li className={classes.listItem}>
+                  <span>Quantity</span>
+                  <span>
+                    {' '}
+                    <FormControl variant="standard">
+                      {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={qty}
+                        // label="Number"
+                        onChange={(e) => setQty(e.target.value)}
+                        // onChange={handleChange}
+                      >
+                        {[...Array(10).keys()].map((x) => (
+                          <MenuItem value={x + 1}>{x + 1}</MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>{' '}
+                  </span>
+                </li>
+              </ul>
+
+              <div className={classes.buttons}>
+                <Button sx={{ mr: 3 }} onClick={handleCart} variant="outlined">
+                  Add to Cart
+                </Button>
+                <Button variant="outlined" color="success">
+                  Buy it Now
+                </Button>
+              </div>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <div className={classes.title}>Broccoly</div>
-            <Typography variant="body1">
-              Libero volutpat sed cras ornare arcu dui vivamus arcu. Interdum
-              consectetur libero id faucibus nisl tincidunt eget nullam. Libero
-              justo laoreet sit amet. Sit amet consectetur adipiscing elit
-              pellentesque habitant.
-            </Typography>
-            <ul className={classes.list}>
-              <li className={classes.listItem}>
-                <span>Price</span>
-                <span>₹344</span>
-              </li>
-              <li className={classes.listItem}>
-                <span>Size</span>
-                <Button variant="outlined">1kg</Button>
-              </li>
-              <li className={classes.listItem}>
-                <span>Quantity</span>
-                <span>
-                  {' '}
-                  <FormControl variant="standard">
-                    {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={qty}
-                      // label="Number"
-                      onChange={(e) => setQty(e.target.value)}
-                      // onChange={handleChange}
-                    >
-                      {[...Array(10).keys()].map((x) => (
-                        <MenuItem value={x + 1}>{x + 1}</MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>{' '}
-                </span>
-              </li>
-            </ul>
-
-            <div className={classes.buttons}>
-              <Button sx={{ mr: 3 }} onClick={handleCart} variant="outlined">
-                Add to Cart
-              </Button>
-              <Button variant="outlined" color="success">
-                Buy it Now
-              </Button>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

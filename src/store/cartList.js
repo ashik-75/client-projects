@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 import products from '../products';
+import { loadProduct } from './singleProduct';
 
 const cartItemFromStorage = localStorage.getItem('cartList')
   ? JSON.parse(localStorage.getItem('cartList'))
   : [];
 
-console.log('Cart from storage', cartItemFromStorage);
+// console.log('Cart from storage', cartItemFromStorage);
 
 const cartList = createSlice({
   name: 'cartList',
@@ -16,6 +18,7 @@ const cartList = createSlice({
   },
   reducers: {
     ADD_ITEM_TO_CART: (state, action) => {
+      console.log('cart action', action.payload);
       const existsItem = state.cart.find(
         (prod) => prod.id === action.payload.id
       );
@@ -37,15 +40,17 @@ const cartList = createSlice({
 export const cartListReducer = cartList.reducer;
 const { ADD_ITEM_TO_CART, REMOVE_FROM_CART } = cartList.actions;
 
-export const addToCart = (id, qty) => (dispatch, getState) => {
-  console.log('id is here ', id);
-  const newProd = products.find((prod) => prod.id === id);
+export const addToCart = (id, qty) => async (dispatch, getState) => {
+  console.log('first');
+  const { data: product } = await axios({
+    url: `/products/${id}/?format=json`,
+  });
 
   const newPayload = {
     id,
-    title: newProd.title,
-    price: newProd.price,
-    countInStock: newProd.countInStock,
+    title: product.title,
+    price: product.price,
+    countInStock: product.countInStock,
     qty,
   };
 
@@ -60,3 +65,7 @@ export const removeFromCart = (id) => (dispatch, getState) => {
   dispatch({ type: REMOVE_FROM_CART.type, payload: { id } });
   localStorage.setItem('cartList', JSON.stringify(getState().cartList.cart));
 };
+
+function calling() {
+  console.log('calling from somewhere');
+}

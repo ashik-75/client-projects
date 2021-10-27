@@ -25,7 +25,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const Product = () => {
+const Product = ({ prod }) => {
   const classes = useStyle();
   return (
     <div>
@@ -33,19 +33,19 @@ const Product = () => {
         <CardMedia
           component="img"
           height="200"
-          image="https://images.unsplash.com/photo-1553175005-a1129d5c188c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YnJvY2NvbGl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          image={prod.image_link}
           alt="green iguana"
         />
         <CardContent className={classes.cont}>
           <Typography gutterBottom variant="h5" component="div">
-            Broccoli
+            {prod.title}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
-            ₹344
+            ₹{prod.price}
           </Typography>
         </CardContent>
         <CardActions className={classes.button}>
-          <Link to="/product/1" className="link">
+          <Link to={`/product/${prod.id}`} className="link">
             <Button variant="outlined" size="small">
               See Details
             </Button>

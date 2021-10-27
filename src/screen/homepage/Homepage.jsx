@@ -29,9 +29,9 @@ const Homepage = () => {
         <Products />
       </div>
 
-      <div className="show-products">
+      {/* <div className="show-products">
         <Products />
-      </div>
+      </div> */}
     </div>
   );
 };
