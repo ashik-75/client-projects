@@ -1,9 +1,4 @@
 [[redirects]]
-  from = "http://productsfetch.herokuapp.com/"
-  to = "/"
-  status = 200
-
-[[redirects]]
   from = "/*"
   to = "/"
   status = 200
