@@ -38,6 +38,7 @@ const Products = () => {
         ) : loading ? (
           'loading'
         ) : (
+          products.length > 0 &&
           products.map((prod) => (
             <Grid key={prod.id} item xs={12} sm={6} md={4} lg={3}>
               <Product prod={prod} />
