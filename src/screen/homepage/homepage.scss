@@ -2,6 +2,10 @@
   min-height: 100vh;
   background-color: white;
   padding: 50px;
+
+  @media screen and (max-width: 600px) {
+    padding: 30px;
+  }
   background-color: #e9ecef;
   // margin-right: 350px;
   .latest-products {

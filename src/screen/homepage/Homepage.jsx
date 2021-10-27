@@ -32,21 +32,6 @@ const Homepage = () => {
       <div className="show-products">
         <Products />
       </div>
-
-      <div className="show-products">
-        <Typography variant="h4">Show all the products</Typography>
-        {products.map((prod) => (
-          <Card key={prod.id} sx={{ mb: 4 }}>
-            <CardContent>{prod.title}</CardContent>
-            <CardContent>{prod.price}</CardContent>
-            <Link to={`/product/${prod.id}`}>
-              <Button sx={{ m: 3 }} variant="contained">
-                Details
-              </Button>
-            </Link>
-          </Card>
-        ))}
-      </div>
     </div>
   );
 };

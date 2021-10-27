@@ -3,11 +3,14 @@
   // background-color: rgb(238, 145, 222);
   // background-color: #a9d6e5;
   padding: 50px;
-  .productDetails-container {
-    display: flex;
-    @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px) {
+    padding: 30px;
+    .productDetails-container {
       flex-direction: column;
     }
+  }
+  .productDetails-container {
+    display: flex;
     gap: 30px;
     .left-image {
       // padding: 40px;

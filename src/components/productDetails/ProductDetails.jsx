@@ -1,4 +1,8 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { ClassNames } from '@emotion/react';
+import { Button } from '@mui/material';
+import { List, Typography } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, Grid } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './productDetails.scss';
@@ -6,19 +10,85 @@ import './productDetails.scss';
 const images = [
   {
     id: 1,
-    url: 'https://media.istockphoto.com/photos/two-raw-chicken-breast-on-white-backdrop-picture-id93456470?b=1&k=20&m=93456470&s=170667a&w=0&h=-LsQSUrmIrIHl4_-CX8lEkA7ywHf-mK6PF4YAkfVtFk=',
+    url: 'https://images.unsplash.com/photo-1615485291234-9d694218aeb3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnJvY2NvbGl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmF3JTIwY2hpY2tlbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    url: 'https://images.unsplash.com/photo-1606585333304-a7fa1ca4376c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb2Njb2xpfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHJhdyUyMGNoaWNrZW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    url: 'https://images.unsplash.com/photo-1628773822503-930a7eaecf80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJyb2Njb2xpfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
   },
 ];
 
+const useStyle = makeStyles((theme) => ({
+  mainImage: {
+    width: '100%',
+    height: '400px',
+    objectFit: 'cover',
+    objectPosition: 'center',
+    borderRadius: '5px',
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: '40px',
+    fontFamily: `'Lobster', cursive`,
+    letterSpacing: 2,
+    marginBottom: '10px',
+  },
+  list: {
+    paddingTop: 50,
+    listStyleType: 'none',
+    // '&:hover': {
+    //   color: 'red',
+    // },
+  },
+  listItem: {
+    width: 200,
+    // background: 'red',
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: 10,
+    fontSize: 18,
+  },
+  lastItem: {
+    // background: 'red',
+    width: 250,
+    height: 100,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  buttons: {
+    marginTop: 50,
+  },
+  imageContainer: {
+    // background: 'blue',
+  },
+  previewImage: {
+    width: '100%',
+    height: 150,
+    opacity: 0.7,
+    cursor: 'pointer',
+    objectPosition: 'center',
+    objectFit: 'cover',
+
+    padding: 5,
+  },
+  grid: {
+    padding: theme.spacing(2),
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(1),
+    },
+  },
+  active: {
+    border: '5px solid green',
+  },
+}));
+
 const ProductDetails = () => {
+  const classes = useStyle();
   const [activeImage, setActiveImage] = useState([true, false, false]);
   const [activeImageUrl, setActiveImageUrl] = useState(images[0].url);
   const [qty, setQty] = useState(1);
@@ -33,94 +103,97 @@ const ProductDetails = () => {
     setActiveImage(newdata);
   };
 
+  console.log('activeImage', activeImage);
+
   const handleCart = () => {
     const dt = `/product/${id}/cart?qty=${qty}`;
-    // console.log('cart edde', dt);
     history.push(dt);
   };
   return (
     <div className="productDetails">
-      <div className="productDetails-container">
-        <div className="left-image">
-          <img src={activeImageUrl} alt="" />
-          <div className="image-sub-container">
-            <img
-              className={activeImage[0] && 'active'}
-              onMouseOver={() => {
-                handleActiveImage(0);
-                setActiveImageUrl(images[0].url);
-              }}
-              src={images[0].url}
-              alt=""
-            />
-            <img
-              className={activeImage[1] && 'active'}
-              onMouseOver={() => {
-                handleActiveImage(1);
-                setActiveImageUrl(images[1].url);
-              }}
-              src={images[1].url}
-              alt=""
-            />
-            <img
-              onMouseOver={() => {
-                handleActiveImage(2);
-                setActiveImageUrl(images[2].url);
-              }}
-              className={activeImage[2] && 'active'}
-              src={images[2].url}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="right-text">
-          <div className="title">
-            Boneless Skinless Chicken Breasts (6 Frozen Packages)
-          </div>
-          <div className="price">₹345</div>
-          <div className="divider"></div>
-          <div className="bundle-details">
-            <span>Bundle Details: </span>5 packages of fully cooked, frozen,
-            organic sausages. 20 links per bundle.
-          </div>
-          <div className="about">
-            <span>About</span>
-            Organic Smart Chicken Uncured Chicken Frankfurters are a healthier
-            alternative to beef and pork sausage with less fat, fewer calories,
-            and no nitrates, nitrites, or MSG. Perfectly seasoned, these
-            delicious, fully cooked sausages add healthful, flavorful protein to
-            your favorite dishes. Organic Smart Chickens are exclusively fed a
-            certified organic, certified non-GMO diet, and are never given
-            antibiotics, hormones, or animal by-products. The program is
-            certified humane by HFAC (Humane Farm Animal Care) and every chicken
-            is free to roam, with access to outdoor pastures. All Smart Chicken
-            is pure air chilled, without added water. The result is the
-            best-tasting, highest-quality fresh chicken on the market. Hatched,
-            Raised & Harvested in the USA Gluten Free Casing Free No Nitrates or
-            Nitrites Certified Organic Certified Humane Non-GMO Project Verified
-            Free Range Pure Air-Chilled No Antibiotics EVER
-          </div>
+      <div className="main-product-details">
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Grid container>
+              <Grid item xs={12}>
+                <img
+                  className={classes.mainImage}
+                  src={activeImageUrl}
+                  alt=""
+                />
+              </Grid>
+            </Grid>
+            <Grid container>
+              {activeImage.map((dt, ind) => (
+                <Grid key={ind} xs={4} className={classes.grid}>
+                  <img
+                    onMouseOver={() => {
+                      setActiveImageUrl(images[ind].url);
+                      const newData = activeImage.map((dt, i) =>
+                        i === ind ? true : false
+                      );
+                      setActiveImage(newData);
+                    }}
+                    className={`${classes.previewImage} ${
+                      activeImage[ind] && classes.active
+                    }`}
+                    src={images[ind].url}
+                    alt=""
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <div className={classes.title}>Broccoly</div>
+            <Typography variant="body1">
+              Libero volutpat sed cras ornare arcu dui vivamus arcu. Interdum
+              consectetur libero id faucibus nisl tincidunt eget nullam. Libero
+              justo laoreet sit amet. Sit amet consectetur adipiscing elit
+              pellentesque habitant.
+            </Typography>
+            <ul className={classes.list}>
+              <li className={classes.listItem}>
+                <span>Price</span>
+                <span>₹344</span>
+              </li>
+              <li className={classes.listItem}>
+                <span>Size</span>
+                <Button variant="outlined">1kg</Button>
+              </li>
+              <li className={classes.listItem}>
+                <span>Quantity</span>
+                <span>
+                  {' '}
+                  <FormControl variant="standard">
+                    {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={qty}
+                      // label="Number"
+                      onChange={(e) => setQty(e.target.value)}
+                      // onChange={handleChange}
+                    >
+                      {[...Array(10).keys()].map((x) => (
+                        <MenuItem value={x + 1}>{x + 1}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>{' '}
+                </span>
+              </li>
+            </ul>
 
-          <div className="quantity">
-            <span>Quantity</span>
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-              {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={qty}
-                // label="Number"
-                onChange={(e) => setQty(e.target.value)}
-                // onChange={handleChange}
-              >
-                {[...Array(10).keys()].map((x) => (
-                  <MenuItem value={x + 1}>{x + 1}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>{' '}
-            <button onClick={handleCart}>add to cart</button>
-          </div>
-        </div>
+            <div className={classes.buttons}>
+              <Button sx={{ mr: 3 }} onClick={handleCart} variant="outlined">
+                Add to Cart
+              </Button>
+              <Button variant="outlined" color="success">
+                Buy it Now
+              </Button>
+            </div>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
