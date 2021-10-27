@@ -33,7 +33,7 @@ const {
 
 export const loadProducts = () => {
   return START_API_CALL({
-    url: '/products/?format=json',
+    url: 'http://productsfetch.herokuapp.com/products/?format=json',
     onStart: PRODUCT_LIST_REQUEST.type,
     onSuccess: PRODUCT_LIST_REQUEST_SUCCESS.type,
     onError: PRODUCT_LIST_REQUEST_FAILED.type,
