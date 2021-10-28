@@ -1,1 +1,1 @@
-/products/* http://productsfetch.herokuapp.com/products/
+/products/* http://productsfetch.herokuapp.com/:splat 200
