@@ -3,7 +3,10 @@
   to = "http://productsfetch.herokuapp.com/"
   status = 200
 
-
+[[redirects]]
+  from = "/signup"
+  to = "/product/cart"
+  status = 200
 
 [[redirects]]
   from = "/*"
