@@ -13,6 +13,7 @@ const productList = createSlice({
       state.loading = true;
     },
     PRODUCT_LIST_REQUEST_SUCCESS: (state, action) => {
+      console.log("action payload",action.payload)
       state.loading = false;
       state.products = action.payload;
     },
