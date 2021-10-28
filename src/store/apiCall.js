@@ -16,12 +16,11 @@ const api =
 
     try {
       const { data } = await axios({
-        baseURL: "http://productsfetch.herokuapp.com/",
         url,
         method: 'get',
       });
 
-      console.log("url ",url)
+      console.log(data,url)
 
       if (onSuccess) {
         dispatch({ type: onSuccess, payload: data });
