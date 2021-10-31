@@ -10,6 +10,7 @@ import AddProduct from './screen/AddProduct';
 import CartScreen from './screen/CartScreen';
 import ScrollTop from './components/ScrollTop';
 import ProductDetails from './components/productDetails/ProductDetails';
+import TestScreen from './screen/TestScreen';
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
         <Navbar />
         <main>
           <Switch>
+          <Route path="/testing">
+              <TestScreen />
+            </Route>
             <Route path="/product/:id?/cart">
               <CartScreen />
             </Route>

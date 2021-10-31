@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { useGetProductQuery, useGetProductsQuery } from '../../store/funApi';
 import { loadProduct } from '../../store/singleProduct';
 import './productDetails.scss';
 
@@ -94,30 +95,30 @@ const useStyle = makeStyles((theme) => ({
 const ProductDetails = () => {
   const classes = useStyle();
   const [activeImage, setActiveImage] = useState([true, false, false]);
-  const [activeImageUrl, setActiveImageUrl] = useState(images[0].url);
+  const [activeImageUrl, setActiveImageUrl] = useState("");
   const [qty, setQty] = useState(1);
   const params = useParams();
   const history = useHistory();
   const id = params.id;
 
-  const dispatch = useDispatch();
-  const { product, error, loading } = useSelector(
-    (state) => state.singleProduct
-  );
 
-  console.log('activeImage', activeImage);
+  const {data,isError:error,isLoading:loading} = useGetProductsQuery()
+
+
+
+  const product = data?.find(dt=>dt.id === Number(id))
+
+
 
   const handleCart = () => {
     const dt = `/product/${id}/cart?qty=${qty}`;
     history.push(dt);
   };
 
-  useEffect(() => {
-    dispatch(loadProduct(id));
-  }, []);
 
-  console.log(product);
   return (
+    <>
+
     <div className="productDetails">
       {error ? (
         <Typography variant="h4">Error...</Typography>
@@ -131,30 +132,40 @@ const ProductDetails = () => {
                 <Grid item xs={12}>
                   <img
                     className={classes.mainImage}
-                    src={activeImageUrl}
+                    src={activeImageUrl || product.image_link}
                     alt=""
                   />
                 </Grid>
               </Grid>
               <Grid container>
-                {activeImage.map((dt, ind) => (
-                  <Grid key={ind} xs={4} className={classes.grid}>
+                
+                  <Grid  xs={4} className={classes.grid}>
                     <img
-                      onMouseOver={() => {
-                        setActiveImageUrl(images[ind].url);
-                        const newData = activeImage.map((dt, i) =>
-                          i === ind ? true : false
-                        );
-                        setActiveImage(newData);
-                      }}
-                      className={`${classes.previewImage} ${
-                        activeImage[ind] && classes.active
-                      }`}
-                      src={images[ind].url}
+
+                      className={`${classes.previewImage} `}
+                      src={product.image_link}
+                      onMouseOver={()=>setActiveImageUrl(product.image_link)}
                       alt=""
                     />
                   </Grid>
-                ))}
+                  <Grid  xs={4} className={classes.grid}>
+                    <img
+
+                      className={`${classes.previewImage} `}
+                      src={product.image_link_1}
+                      onMouseOver={()=>setActiveImageUrl(product.image_link_1)}
+                      alt=""
+                    />
+                  </Grid>
+                  <Grid  xs={4} className={classes.grid}>
+                    <img
+                      className={`${classes.previewImage}`}
+                      src={product.image_link_2}
+                      onMouseOver={()=>setActiveImageUrl(product.image_link_2)}
+                      alt=""
+                    />
+                  </Grid>
+                
               </Grid>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -174,14 +185,14 @@ const ProductDetails = () => {
                   <span>
                     {' '}
                     <FormControl variant="standard">
-                      {/* <InputLabel id="demo-simple-select-label"></InputLabel> */}
+                   
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={qty}
-                        // label="Number"
+                      
                         onChange={(e) => setQty(e.target.value)}
-                        // onChange={handleChange}
+                        
                       >
                         {[...Array(10).keys()].map((x) => (
                           <MenuItem value={x + 1}>{x + 1}</MenuItem>
@@ -205,6 +216,7 @@ const ProductDetails = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

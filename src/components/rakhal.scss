@@ -1,0 +1,61 @@
+.rakhal-home{
+    nav{
+        height: 70px;
+        width: 100%;
+        background-color: #264653;
+        color: white;
+        display: flex;
+        h1{
+            font-size: 40px;
+        }
+
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 50px;
+        ul{
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            li{
+                margin-right: 20px;
+                font-size: 25px;
+                // font-weight: 500;
+            }
+        }
+    }
+
+    .hero{
+        width: 100%;
+        margin-top: 100px;
+        // height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .title{
+            text-transform: capitalize;
+            font-size: 50px;
+            color:darkslategrey;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .subtitle{
+            font-size: 23px;
+            margin-bottom: 10px;
+            color: rgb(168, 166, 166);
+        }
+        button{
+            // width: 100px;
+            background-color: darkslategrey;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+
+
+        }
+    }
+}

@@ -58,6 +58,7 @@ const Navbar = () => {
               <AddShoppingCartIcon />
             </IconButton>
           </Link>
+          <Link to="/testing" className="link">
           <IconButton
             size="large"
             edge="start"
@@ -67,6 +68,7 @@ const Navbar = () => {
           >
             <AccountCircleIcon />
           </IconButton>
+          </Link>
         </div>
       </Toolbar>
     </AppBar>

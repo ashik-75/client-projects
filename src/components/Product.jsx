@@ -28,7 +28,7 @@ const useStyle = makeStyles((theme) => ({
 const Product = ({ prod }) => {
   const classes = useStyle();
   return (
-    <div>
+    <div >
       <Card>
         <CardMedia
           component="img"
@@ -38,7 +38,7 @@ const Product = ({ prod }) => {
         />
         <CardContent className={classes.cont}>
           <Typography gutterBottom variant="h5" component="div">
-            {prod.title}
+            {prod.title} - {prod.category}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             ₹{prod.price}

@@ -1,9 +1,10 @@
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useGetProductsQuery } from '../store/funApi';
 import { loadProducts } from '../store/productList';
 import Product from './Product';
 // import {} from '@mui';
@@ -15,32 +16,50 @@ const useStyle = makeStyles({
   },
 });
 
-const Products = () => {
+const Products = ({search,category}) => {
   const classes = useStyle();
-  const dispatch = useDispatch();
-  const { products, loading, error } = useSelector(
-    (state) => state.productList
-  );
+  const {data:products,isLoading:loading,isError:error} = useGetProductsQuery();
+  const [results,setResults] = useState([]);
 
-  useEffect(() => {
-    dispatch(loadProducts());
-  }, []);
+  console.log("category",category)
 
-  console.log({ products, loading, error });
+  useEffect(()=>{
+    if(products){
+
+      if(search && category){
+        const newData = products.filter(prod => prod.category.toLowerCase().includes(category) && prod.title.toLowerCase().includes(search.toLowerCase()));
+  
+        setResults(newData)
+      }
+      else if(search){
+        const newData = products.filter(prod => prod.title.toLowerCase().includes(search.toLowerCase()));
+  
+        setResults(newData)
+      }else if(category){
+        const newData = products.filter(prod => prod.category.toLowerCase().includes(category.toLowerCase()));
+        console.log(category)
+        setResults(newData)
+      }
+      else{
+        setResults(products)
+      }
+    }
+  },[search,loading,category])
+
+
+console.log(results);
   return (
     <div className={classes.root}>
-      <Typography gutterBottom variant="h5" component="div">
-        Chicken
-      </Typography>
       <Grid container spacing={2}>
         {error ? (
           <Typography>{error}</Typography>
         ) : loading ? (
           'loading'
         ) : (
-          products.length > 0 &&
-          products.map((prod) => (
-            <Grid key={prod.id} item xs={12} sm={6} md={4} lg={3}>
+          results &&
+          results.length > 0 &&
+          results.map((prod) => (
+            <Grid key={prod.id} key={prod.id} item xs={12} sm={6} md={4} lg={3}>
               <Product prod={prod} />
             </Grid>
           ))
