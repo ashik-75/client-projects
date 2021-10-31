@@ -9,18 +9,13 @@ import TestScreen from './screen/TestScreen';
 import Rakhal from './components/Rakhal';
 const theme = createTheme();
 
-// ReactDOM.render(
-//   <Provider store={funStore}>
-//     <ThemeProvider theme={theme}>
-//       {/* <TestScreen /> */}
-//       <App />
-//     </ThemeProvider>
-//   </Provider>,
-//   document.getElementById('root')
-// );
-
-
 ReactDOM.render(
-  <Rakhal />,
+  <Provider store={funStore}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </Provider>,
   document.getElementById('root')
 );
+
+

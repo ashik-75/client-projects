@@ -17,38 +17,24 @@ const addToCart = createSlice({
             }else{
                 state.cartItems.push(action.payload)
             }
+        },
+        REMOVE_ITEM_FROM_CART: (state,action) => {
+            state.cartItems = state.cartItems.filter(prod => prod.id !== action.payload.id)
         }
     }
 })
 
 
 export const addToCartReducer = addToCart.reducer;
-const {ADD_TO_CART} = addToCart.actions
+const {ADD_TO_CART,REMOVE_ITEM_FROM_CART} = addToCart.actions
 
 
-export const addItemToCart = (id,qty) => (dispatch,getState) => {
-    // console.log(id,qty);
-
-    // const filtered = getState();
-
-    // console.log(filtered)
-    console.log(getState())
-
-    dispatch({type: ADD_TO_CART.type,payload: {id:1,title:"tomato",qty}})
-    // console.log(id,qty)
-    // const {data,isLoading,isError} = useGetProductsQuery();
-    // console.log(data)
-    // if(!isLoading) {
-        // const getProduct = data.find(dt => dt.id === id);
-        // dispatch({type: ADD_TO_CART.type,payload: {
-        //     id: getProduct.id,
-        //     title: getProduct.title,
-        //     desc: getProduct.description,
-        //     price: getProduct.price,
-        //     qty
-        // }})
-    // }
-
-    // localStorage.setItem("cartItems",JSON.stringify(getState().addToCart.cartItems))
-
+export const addItemToCart = (cartData) => (dispatch,getState) => {
+    dispatch({type: ADD_TO_CART.type,payload: cartData})
+    localStorage.setItem("cartItems",JSON.stringify(getState().addToCart.cartItems))
 } 
+
+export const removeItemFromCart = (id) =>(dispatch,getState)=>{
+    dispatch({type: REMOVE_ITEM_FROM_CART.type,payload: {id}});
+    localStorage.setItem("cartItems",JSON.stringify(getState().addToCart.cartItems))
+}
