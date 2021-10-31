@@ -14,7 +14,6 @@ const Rakhal = () => {
                 </ul>
             </nav>
 
-
             <div className="hero">
                 <div className="title">
                     wellcome to rakhaal
