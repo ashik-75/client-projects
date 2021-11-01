@@ -2,6 +2,8 @@
 
 ecom/
 
+check.js
+
 # dependencies
 /node_modules
 node_modules
