@@ -61,7 +61,7 @@ console.log(results);
           results &&
           results.length > 0 &&
           results.map((prod,index) => (
-            <Grid key={prod.id} key={prod.id} item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
               <Product prod={index<4?{...prod,image_link}:prod} />
             </Grid>
           ))

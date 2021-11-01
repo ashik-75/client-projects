@@ -104,7 +104,7 @@ const ProductDetails = () => {
 
   const {data,isError:error,isLoading:loading} = useGetProductsQuery()
 
-
+  const image_link = "https://images.unsplash.com/photo-1518843875459-f738682238a6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmVnZXRhYmxlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
 
   const product = data?.find(dt=>dt.id === Number(id))
 
@@ -132,7 +132,7 @@ const ProductDetails = () => {
                 <Grid item xs={12}>
                   <img
                     className={classes.mainImage}
-                    src={activeImageUrl || product.image_link}
+                    src={activeImageUrl || id<7?image_link:product.image_link}
                     alt=""
                   />
                 </Grid>
