@@ -1,0 +1,389 @@
+@charset "UTF-8";
+body header {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+body header .left img {
+  width: 100px;
+}
+body header .right i {
+  color: crimson;
+  margin-right: 5px;
+}
+body main {
+  font-family: "Ubuntu", sans-serif;
+}
+body main .features {
+  width: 100%;
+  height: 500px;
+  background-image: url("images/Data-Banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #b90719;
+  background-blend-mode: multiply;
+  display: flex;
+}
+body main .features .left {
+  font-family: "Ubuntu", sans-serif;
+  flex: 3;
+  display: flex;
+  align-items: center;
+  padding: 0px 100px;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 40px;
+}
+body main .features .left span:nth-child(1) {
+  font-weight: bolder;
+}
+body main .features .left span:nth-child(2) {
+  font-weight: 300;
+}
+body main .features .right {
+  flex: 1;
+  margin: 0px 50px 80px 20px;
+  background-color: white;
+  padding: 30px;
+}
+body main .features .right .form-title {
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+body main .features .right form input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  outline-style: none;
+}
+body main .features .right form button {
+  width: 100%;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  padding: 10px 0px;
+  background-color: crimson;
+  outline-style: none;
+  cursor: pointer;
+  color: white;
+}
+body main .sub-cont {
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .sub-cont .text {
+  padding: 30px;
+  text-align: center;
+  width: 75%;
+  font-size: 22px;
+  line-height: 30px;
+}
+body main .section-two-container {
+  padding: 50px 100px;
+}
+body main .section-two-container .sec-two-1 {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+  height: 300px;
+}
+body main .section-two-container .sec-two-1 .left {
+  flex: 1;
+}
+body main .section-two-container .sec-two-1 .left .title {
+  width: 80%;
+  font-weight: 600;
+  font-size: 27px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+body main .section-two-container .sec-two-1 .left .desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 27px;
+}
+body main .section-two-container .sec-two-1 .right {
+  flex: 1;
+}
+body main .section-two-container .sec-two-1 .right img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+body main .section-3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-image: url("images/Group-6940@2x.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body main .section-3 .section-3-container {
+  width: 50%;
+  padding: 30px 0px;
+  text-align: center;
+}
+body main .section-3 .section-3-container .title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  color: white;
+  margin-bottom: 20px;
+}
+body main .section-3 .section-3-container .desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 30px;
+  padding: 0px 20px;
+}
+body main .section-3 .section-3-container button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+}
+body main .section-4 {
+  margin: 100px;
+}
+body main .section-4 .part-1 .title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+body main .section-4 .part-1 .title span {
+  font-weight: bold;
+}
+body main .section-4 .part-1 .part-1-container {
+  display: flex;
+  gap: 50px;
+}
+body main .section-4 .part-1 .part-1-container .left {
+  width: 100%;
+}
+body main .section-4 .part-1 .part-1-container .left img {
+  width: 100%;
+  height: 300px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body main .section-4 .part-1 .part-1-container .right {
+  padding: 10px 0px;
+}
+body main .section-4 .part-1 .part-1-container .right ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body main .section-4 .part-1 .part-1-container .right ul li {
+  margin-bottom: 10px;
+  padding-left: 16px;
+  text-indent: -0.7em;
+  line-height: 25px;
+}
+body main .section-4 .part-1 .part-1-container .right ul li::before {
+  content: "•";
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.1em;
+  margin-left: -1em;
+}
+body main .section-4 .part-2 {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body main .section-4 .part-2 .title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body main .section-4 .part-2 .title span {
+  font-weight: 700;
+}
+body main .section-4 .part-2 .subtitle {
+  width: 60%;
+  text-align: center;
+  font-size: 15px;
+  line-height: 25px;
+}
+body main .section-4 .part-2 .part-2-cont {
+  margin: 50px 0px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+body main .section-4 .part-2 .part-2-cont i {
+  position: absolute;
+  top: -20px;
+  font-size: 50px;
+  color: #8d8a8a;
+}
+body main .section-4 .part-2 .part-2-cont .testimonials {
+  flex: 1;
+  padding: 50px 20px;
+  background-color: #eeeeee;
+}
+body footer {
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body footer .logo {
+  margin-bottom: 10px;
+}
+body footer .logo img {
+  width: 100px;
+}
+body footer .email {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+body footer .email img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 600px) {
+  body main .features .left {
+    font-size: 20px;
+    flex: 2;
+    padding: 0px 0px 0px 30px;
+  }
+  body main .features .right {
+    flex: 2;
+    padding: 20px;
+    margin: 0px 20px 130px 20px;
+  }
+  body main .features .right .form-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  body main .sub-cont .text {
+    padding: 20px;
+    width: 90%;
+    font-size: 18px;
+  }
+  body main .section-two-container {
+    padding: 50px 20px;
+  }
+  body main .section-two-container .sec-two-1 {
+    margin-bottom: 70px;
+    gap: 20px;
+    height: 300px;
+  }
+  body main .section-two-container .sec-two-1 .left {
+    flex: 1;
+  }
+  body main .section-two-container .sec-two-1 .left .title {
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+  }
+  body main .section-two-container .sec-two-1 .left .desc {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+  }
+  body main .section-3 .section-3-container {
+    width: 90%;
+    padding: 30px 0px;
+    text-align: center;
+  }
+  body main .section-4 {
+    margin: 50px;
+  }
+  body main .section-4 .part-1 .title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  body main .section-4 .part-1 .title span {
+    font-weight: bold;
+  }
+  body main .section-4 .part-1 .part-1-container {
+    flex-direction: column;
+  }
+  body main .section-4 .part-1 .part-1-container .left {
+    width: 100%;
+  }
+  body main .section-4 .part-1 .part-1-container .left img {
+    width: 100%;
+    height: 300px;
+    -o-object-position: center;
+       object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body main .section-4 .part-1 .part-1-container .right {
+    padding-left: 20px;
+  }
+  body main .section-4 .part-2 {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body main .section-4 .part-2 .title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  body main .section-4 .part-2 .title span {
+    font-weight: 700;
+  }
+  body main .section-4 .part-2 .subtitle {
+    width: 80%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+  }
+  body main .section-4 .part-2 .part-2-cont {
+    flex-direction: column;
+  }
+  body main .section-4 .part-2 .part-2-cont i {
+    position: absolute;
+    top: -20px;
+    font-size: 50px;
+    color: #8d8a8a;
+  }
+  body main .section-4 .part-2 .part-2-cont .testimonials {
+    position: relative;
+    flex: 1;
+    margin-bottom: 50px;
+    padding: 50px 20px;
+    background-color: #eeeeee;
+  }
+}/*# sourceMappingURL=style.css.map */
