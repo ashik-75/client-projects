@@ -40,7 +40,11 @@ body .container .main-part .chart-title {
 body .container .main-part .chart-title span:nth-child(1) {
   font-weight: 700;
 }
+body .container .main-part .chart-summary {
+  width: 100%;
+}
 body .container .main-part .chart-summary table {
+  width: 100%;
   border-collapse: collapse;
 }
 body .container .main-part .chart-summary table tbody {
