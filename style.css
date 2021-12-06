@@ -1,0 +1,74 @@
+body {
+  margin: 20;
+  font-family: "Montserrat", sans-serif;
+}
+body .container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+body .container .title {
+  font-size: 25px;
+  color: crimson;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+body .container .topbar {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+body .container .topbar .one {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+body .container .topbar .two span:nth-child(1) {
+  font-weight: 700;
+  font-size: 20px;
+}
+body .container .main-part {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+body .container .main-part .chart-title {
+  font-size: 20px;
+}
+body .container .main-part .chart-title span:nth-child(1) {
+  font-weight: 700;
+}
+body .container .main-part .chart-summary table {
+  border-collapse: collapse;
+}
+body .container .main-part .chart-summary table tbody {
+  font-size: 15px;
+}
+body .container .main-part .chart-summary table tbody tr {
+  border-top: 1px solid #ddd;
+  padding: 10px 0px;
+  line-height: 20px;
+  display: block;
+}
+body .container .main-part .chart-summary table tbody tr th {
+  margin-right: 10px;
+  display: inline-block;
+  font-weight: 500;
+}
+body .container .main-part .chart-summary table tbody tr th:nth-child(1) {
+  font-weight: 700;
+}
+body .container .main-part .chart-summary table tbody tr:nth-child(2) th:nth-child(3) {
+  margin-right: 20px;
+}
+body .container .main-part .chart-summary table tbody tr:nth-child(2) th:nth-child(4) {
+  margin-right: 20px;
+}
+body .container .main-part .chart-summary table tbody tr:nth-child(2) th:nth-child(5) {
+  margin-right: 30px;
+}
+body .container .main-part .chart-summary table tbody tr:nth-child(2) th:nth-child(6) {
+  margin-right: 20px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&family=Ubuntu:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Load the AJAX API-->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart", "bar"] });
+      google.charts.setOnLoadCallback(drawAxisTickColors);
+
+      function drawAxisTickColors() {
+        var data = google.visualization.arrayToDataTable([
+          ["Month", "Rating", { role: "style" }, { role: "annotation" }],
+          ["Jul 2019", 3.5, "#023e8a", 3.5],
+          ["Jan 2020", 4.5, "#023e8a", 4.5],
+          ["Jul 2020", 2.5, "#023e8a", 2.5],
+          ["Jan 2021", 5, "color: #023e8a", 5],
+          ["Feb 2021", 4, "color: #023e8a", 4],
+          ["Sep 2021", 4.2, "color: #023e8a", 4.2],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([
+          0,
+          1,
+          {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation",
+          },
+          2,
+        ]);
+
+        var options = {
+          //   title: "Density of Precious Metals, in g/cm^3",
+          width: 1000,
+          height: 400,
+          //   title: "Feedback History (Latest 5 Reviews Periods)",
+          hAxis: {
+            title: "Feedback Submitted On",
+            format: "h:mm a",
+            viewWindow: {
+              min: [7, 30, 0],
+              max: [17, 30, 0],
+            },
+          },
+          vAxis: {
+            title: "Overwall Rating",
+          },
+
+          bar: { groupWidth: "40%" },
+          legend: { position: "none" },
+        };
+
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div class="container">
+      <div class="title">Overwall Engagement Feedback</div>
+      <div class="topbar">
+        <div class="one">
+          <span>Overwall Rating</span>
+        </div>
+        <div class="two">
+          <span>Comments: </span>
+          <span>Great work done by team.Thank you all</span>
+        </div>
+      </div>
+      <div class="main-part">
+        <div class="chart-title">
+          <span>Feedback History</span> <span>(Latest 5 Reviews Periods)</span>
+        </div>
+
+        <div id="chart_div"></div>
+
+        <div class="chart-summary">
+          <table>
+            <tbody>
+              <tr>
+                <th>Review Period</th>
+                <th>Jan 2019-Jun 2019</th>
+                <th>Jul 2019-Dec 2020</th>
+                <th>Jan 2020-Jun 2020</th>
+                <th>Jul 2020-Dec 2020</th>
+                <th>jan 2020-Dec 2020</th>
+                <th>Jan 2021-Jun 2021</th>
+              </tr>
+              <tr>
+                <th>Client Manager</th>
+                <th>Client Manager 1</th>
+                <th>Client Manager 2</th>
+                <th>Client Manager 1</th>
+                <th>Client Manager 1</th>
+                <th>Client Manager 2</th>
+                <th>Client Manager 1</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
