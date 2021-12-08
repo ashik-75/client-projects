@@ -192,18 +192,30 @@ body main .section-4 .part-1 .part-1-container .right ul {
   margin: 0;
 }
 body main .section-4 .part-1 .part-1-container .right ul li {
+  display: flex;
   margin-bottom: 10px;
   padding-left: 16px;
   text-indent: -0.7em;
   line-height: 25px;
 }
 body main .section-4 .part-1 .part-1-container .right ul li::before {
-  content: "•";
+  /* content: "•";
   color: red;
   font-weight: bold;
   display: inline-block;
   width: 1.1em;
-  margin-left: -1em;
+  margin-left: -1em; */
+
+  content: "\2022";
+  color: rgb(221, 7, 7);
+  display: inline-block;
+  margin-right: 20px;
+  /* width: 1em; */
+  /* margin-left: -0.5em; */
+  font-weight: bold;
+  /* width: 10px;
+  height: 10px; */
+  font-size: 3rem;
 }
 body main .section-4 .part-2 {
   margin-top: 100px;
@@ -439,7 +451,7 @@ body footer .email img {
   }
   body main .section-4 .part-1 .title {
     font-family: "Montserrat", sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
