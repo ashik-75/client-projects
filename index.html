@@ -21,6 +21,12 @@
         box-sizing: border-box;
       }
     </style>
+    <script>
+      function toPageTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
     <title>Data Landing Page</title>
   </head>
   <body>
@@ -34,7 +40,7 @@
 
     <main>
       <!-- section 1 -->
-      <div class="features">
+      <div class="features" style="background-image: url(images/banner.png)">
         <div class="left">
           <div class="title-fet">
             <span>HyperScale to an insight-driven enterprise</span>
@@ -48,7 +54,7 @@
             <input type="email" placeholder="Email*" />
             <input type="text" placeholder="Mobile No*" />
             <input type="text" placeholder="Company Name*" />
-            <button>get a callback</button>
+            <button onclick="toPageTop()">get a callback</button>
           </form>
         </div>
       </div>
@@ -146,7 +152,7 @@
             Plan your data future with an executable roadmap to enable scalable
             and trusted reporting of business metrics.
           </div>
-          <button>get a call back</button>
+          <button onclick="toPageTop()">get a call back</button>
         </div>
       </div>
 
@@ -234,7 +240,7 @@
             Modernize legacy data capabilities within your enterprise with
             cloud, agile analytics, and mature data governance.
           </div>
-          <button>get a call back</button>
+          <button onclick="toPageTop()">get a call back</button>
         </div>
       </div>
     </main>
