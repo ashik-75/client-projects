@@ -137,7 +137,8 @@ body .container .card-container-3 .right img {
   }
   body .container .card-container-3 .left button {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 20px;
+    font-size: 15px;
   }
   body .container .card-container-3 .right img {
     width: 100%;
