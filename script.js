@@ -27,7 +27,10 @@
 //   return true;
 // }
 
-function getData() {
+async function getData() {
+  const response = await fetch("http://localhost:5000/sections");
+  const result = await response.json();
+
   const list_container = document.getElementById("more-options");
   let list = ["Marketing", "Advertising"];
 
