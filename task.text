@@ -1,0 +1,13 @@
+Status => complete
+
+// task - 1: Design Cookie Popup Page 
+// task - 2: fetch backend data(GET) & show cookie section into cookie popup page 
+// task - 3: if user's cookie storage already contains tech-cookie(exact domain) then popup page don't show/disapper
+    otherwise shows
+// task - 4: if you press accept cookies button it set cookie into your browser(just for demonstrate lettter i will set it by using server response) other button don't set cookie inside cookie storage (just disappear)
+
+Status => incomplete 
+
+// task - 1: when the user select an option then final choice sent to the server
+// task - 2: the server return a string that string set to be a tech cookie (duration permanently)
+// task - 3: popup banner customization 

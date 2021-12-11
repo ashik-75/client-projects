@@ -2,9 +2,10 @@ async function getData() {
   const response = await fetch("http://localhost:5000/sections");
   const result = await response.json();
 
-  const resultArray = Object.keys(result);
+  let resultArray = Object.keys(result);
 
-  console.log(resultArray);
+  resultArray =
+    resultArray?.length > 0 ? resultArray : ["Marketing", "Advertising"];
 
   const moreOptions = document.getElementById("more-options");
   let ul = document.createElement("ul");
