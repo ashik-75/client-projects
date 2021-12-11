@@ -1,42 +1,15 @@
-// async function getData() {
-//   const response = await fetch("http://localhost:5000/sections");
-//   const result = await response.json();
-
-//   let resultArray = Object.keys(result);
-
-//   resultArray =
-//     resultArray?.length > 0 ? resultArray : ["Marketing", "Advertising"];
-
-//   const moreOptions = document.getElementById("more-options");
-//   let ul = document.createElement("ul");
-//   moreOptions.appendChild(ul);
-
-//   for (let i = 0; i < resultArray.length; i++) {
-//     let li = document.createElement("li");
-//     let input = document.createElement("input");
-//     input.setAttribute("id", `${resultArray[i]}`);
-//     input.setAttribute("type", "checkbox");
-//     let label = document.createElement("label");
-//     label.setAttribute("for", `${resultArray[i]}`);
-//     label.innerHTML = `${resultArray[i]}`;
-//     li.appendChild(input);
-//     li.appendChild(label);
-//     ul.appendChild(li);
-//   }
-
-//   return true;
-// }
-
 async function getData() {
   try {
-    const response = await fetch("http://localhost:5000/sections");
+    // put your own url(in server it doesn't work)
+    const response = await fetch("http://localhost:5000/sectionss");
     const result = await response.json();
+
+    let resultArray = Object.keys(result);
 
     // dom manipulation
     const list_container = document.getElementById("more-options");
-    let list = ["Marketing", "Advertising"];
 
-    for (let i of list) {
+    for (let i of resultArray) {
       let li = document.createElement("li");
 
       let input = document.createElement("input");
@@ -53,26 +26,7 @@ async function getData() {
 
     return true;
   } catch (error) {
-    console.log(error);
-    //  dom manipulation
-    const list_container = document.getElementById("more-options");
-    let list = ["Marketing", "Advertising"];
-
-    for (let i of list) {
-      let li = document.createElement("li");
-
-      let input = document.createElement("input");
-      input.setAttribute("id", `${i}`);
-      input.setAttribute("type", "checkbox");
-      let label = document.createElement("label");
-      label.setAttribute("for", `${i}`);
-      label.innerHTML = `${i}`;
-      li.appendChild(input);
-      li.appendChild(label);
-      list_container.appendChild(li);
-    }
-
-    return true;
+    console.log(error.message);
   }
 }
 
@@ -128,6 +82,7 @@ window.onload = () => {
   closeBtn.addEventListener("click", closeBtnFn);
 
   if (shouldShowPopup(storageType) && getData()) {
+    console.log(getData() ? "yes" : "no");
     setTimeout(() => {
       consentPopup.classList.remove("hidden");
     }, 1000);
