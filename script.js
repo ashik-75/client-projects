@@ -33,7 +33,15 @@ function getData() {
 
   for (let i of list) {
     let li = document.createElement("li");
-    li.innerHTML = i;
+
+    let input = document.createElement("input");
+    input.setAttribute("id", `${i}`);
+    input.setAttribute("type", "checkbox");
+    let label = document.createElement("label");
+    label.setAttribute("for", `${i}`);
+    label.innerHTML = `${i}`;
+    li.appendChild(input);
+    li.appendChild(label);
     list_container.appendChild(li);
   }
   console.log(list_container);

@@ -84,21 +84,19 @@ body {
     }
 
     #more-options {
-      ul {
-        list-style-type: none;
-        padding: 0 5px;
-        li {
-          margin-bottom: 10px;
-          input {
-            transform: scale(1.5);
-            margin-right: 10px;
-            border: 1px solid black;
-          }
-          label {
-            text-transform: capitalize;
-            font-size: 18px;
-            letter-spacing: 1px;
-          }
+      list-style-type: none;
+      padding: 0 5px;
+      li {
+        margin-bottom: 10px;
+        input {
+          transform: scale(1.5);
+          margin-right: 10px;
+          border: 1px solid black;
+        }
+        label {
+          text-transform: capitalize;
+          font-size: 18px;
+          letter-spacing: 1px;
         }
       }
     }

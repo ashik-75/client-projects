@@ -87,23 +87,23 @@ body #consent-popup #save {
   font-weight: 700;
 }
 
-body #consent-popup #more-options ul {
+body #consent-popup #more-options {
   list-style-type: none;
   padding: 0 5px;
 }
 
-body #consent-popup #more-options ul li {
+body #consent-popup #more-options li {
   margin-bottom: 10px;
 }
 
-body #consent-popup #more-options ul li input {
+body #consent-popup #more-options li input {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   margin-right: 10px;
   border: 1px solid black;
 }
 
-body #consent-popup #more-options ul li label {
+body #consent-popup #more-options li label {
   text-transform: capitalize;
   font-size: 18px;
   letter-spacing: 1px;
