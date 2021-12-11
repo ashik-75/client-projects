@@ -28,27 +28,32 @@
 // }
 
 async function getData() {
-  const response = await fetch("http://localhost:5000/sections");
-  const result = await response.json();
+  try {
+    const response = await fetch("http://localhost:5000/sections");
+    const result = await response.json();
+    const list_container = document.getElementById("more-options");
+    let list = ["Marketing", "Advertising"];
 
-  const list_container = document.getElementById("more-options");
-  let list = ["Marketing", "Advertising"];
+    for (let i of list) {
+      let li = document.createElement("li");
 
-  for (let i of list) {
-    let li = document.createElement("li");
+      let input = document.createElement("input");
+      input.setAttribute("id", `${i}`);
+      input.setAttribute("type", "checkbox");
+      let label = document.createElement("label");
+      label.setAttribute("for", `${i}`);
+      label.innerHTML = `${i}`;
+      li.appendChild(input);
+      li.appendChild(label);
+      list_container.appendChild(li);
+    }
+    console.log(list_container);
+    return true;
+  } catch (error) {
+    console.log(error);
 
-    let input = document.createElement("input");
-    input.setAttribute("id", `${i}`);
-    input.setAttribute("type", "checkbox");
-    let label = document.createElement("label");
-    label.setAttribute("for", `${i}`);
-    label.innerHTML = `${i}`;
-    li.appendChild(input);
-    li.appendChild(label);
-    list_container.appendChild(li);
+    return true;
   }
-  console.log(list_container);
-  return true;
 }
 
 const cookieStorage = {
