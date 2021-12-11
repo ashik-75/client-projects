@@ -126,5 +126,13 @@ body #consent-popup.hidden {
     width: 95%;
     right: 10px;
   }
+  body #consent-popup img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  body #consent-popup .fas {
+    font-size: 30px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
