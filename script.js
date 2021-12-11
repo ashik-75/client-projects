@@ -23,9 +23,9 @@ async function getData() {
     li.appendChild(label);
     ul.appendChild(li);
   }
-}
 
-getData();
+  return true;
+}
 
 const cookieStorage = {
   getItem: (item) => {
@@ -41,7 +41,7 @@ const cookieStorage = {
 };
 
 const storageType = cookieStorage;
-const consentPropertyName = "jdc_consent";
+const consentPropertyName = "tech-cookie";
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
 const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 
@@ -78,7 +78,7 @@ window.onload = () => {
   saveBtn.addEventListener("click", saveBtnFn);
   closeBtn.addEventListener("click", closeBtnFn);
 
-  if (shouldShowPopup(storageType)) {
+  if (shouldShowPopup(storageType) && getData()) {
     setTimeout(() => {
       consentPopup.classList.remove("hidden");
     }, 1000);
