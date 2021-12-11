@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-
-    <h1>
-        concent poppup
-    </h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Cookie</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>concent poppup</h1>
 
     <div id="consent-popup" class="hidden">
-        <img src="./images/cokie-consent.png" alt="">
-        <div class="cookie-title">Your Privacy</div>
-        <div class="cookie-message">By clicking “Accept all cookies”, you agree example.com can store cookies on your device and disclose information in accordance with our Cookie Policy.</div>
-        <button id="accept">Accept All Cookies</button>
-        <button id="customize">Customize Setting</button>
+      <i class="fas fa-times" id="close"></i>
+      <img src="./images/cokie-consent.png" alt="" />
+      <div class="cookie-title">Your Privacy</div>
+      <div class="cookie-message">
+        By clicking “Accept all cookies”, you agree example.com can store
+        cookies on your device and disclose information in accordance with our
+        Cookie Policy.
+      </div>
+      <div id="more-options"></div>
+      <button id="deny">Deny All Cookies</button>
+      <button id="accept">Accept All Cookies</button>
+      <button id="save">Save Preference</button>
     </div>
 
-    <!-- <div id="consent-popup" class="hidden">
-
-        <p>By using this site you agree to our <a href="#">Terms and Conditions</a>.
-            Please <a id="accept" href="#">Accept</a> these before using the site.
-        </p>
-    </div> -->
-
-    <script src="./script.js"></script>
-</body>
+    <script type="module" src="./script.js"></script>
+  </body>
 </html>

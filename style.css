@@ -1,16 +1,5 @@
 body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-body #consent-popup {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 8rem;
-  background-color: #fff;
-  -webkit-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  font-family: "Montserrat", sans-serif;
 }
 
 body #consent-popup {
@@ -19,10 +8,19 @@ body #consent-popup {
   left: 10px;
   right: 0;
   width: 40%;
-  background-color: #1d3557;
+  background-color: #14213d;
   color: white;
   border-radius: 5px;
-  padding: 50px;
+  padding: 30px;
+}
+
+body #consent-popup .fas {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
 }
 
 body #consent-popup img {
@@ -50,23 +48,83 @@ body #consent-popup #accept {
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
-  background-color: red;
+  background-color: #023e8a;
   color: white;
   margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 2px;
+  font-weight: 700;
 }
 
-body #consent-popup #customize {
+body #consent-popup #deny {
   display: block;
   width: 100%;
   border: none;
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
-  background-color: #2a9d8f;
+  background-color: white;
+  color: #03045e;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 2px;
+  border: 2px solid #03045e;
+  border-bottom: #ddd;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+body #consent-popup #save {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #03045e;
+  font-family: "Montserrat", sans-serif;
   color: white;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+body #consent-popup #more-options ul {
+  list-style-type: none;
+  padding: 0 5px;
+}
+
+body #consent-popup #more-options ul li {
+  margin-bottom: 10px;
+}
+
+body #consent-popup #more-options ul li input {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+body #consent-popup #more-options ul li label {
+  text-transform: capitalize;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
 body #consent-popup.hidden {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
   opacity: 0;
+}
+
+@media screen and (max-width: 780px) {
+  body #consent-popup {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 467px) {
+  body #consent-popup {
+    width: 95%;
+    right: 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
