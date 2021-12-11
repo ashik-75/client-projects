@@ -1,35 +1,44 @@
-async function getData() {
-  const response = await fetch("http://localhost:5000/sections");
-  const result = await response.json();
+// async function getData() {
+//   const response = await fetch("http://localhost:5000/sections");
+//   const result = await response.json();
 
-  let resultArray = Object.keys(result);
+//   let resultArray = Object.keys(result);
 
-  resultArray =
-    resultArray?.length > 0 ? resultArray : ["Marketing", "Advertising"];
+//   resultArray =
+//     resultArray?.length > 0 ? resultArray : ["Marketing", "Advertising"];
 
-  const moreOptions = document.getElementById("more-options");
-  let ul = document.createElement("ul");
-  moreOptions.appendChild(ul);
+//   const moreOptions = document.getElementById("more-options");
+//   let ul = document.createElement("ul");
+//   moreOptions.appendChild(ul);
 
-  for (let i = 0; i < resultArray.length; i++) {
+//   for (let i = 0; i < resultArray.length; i++) {
+//     let li = document.createElement("li");
+//     let input = document.createElement("input");
+//     input.setAttribute("id", `${resultArray[i]}`);
+//     input.setAttribute("type", "checkbox");
+//     let label = document.createElement("label");
+//     label.setAttribute("for", `${resultArray[i]}`);
+//     label.innerHTML = `${resultArray[i]}`;
+//     li.appendChild(input);
+//     li.appendChild(label);
+//     ul.appendChild(li);
+//   }
+
+//   return true;
+// }
+
+function getData() {
+  const list_container = document.getElementById("more-options");
+  let list = ["Marketing", "Advertising"];
+
+  for (let i of list) {
     let li = document.createElement("li");
-    let input = document.createElement("input");
-    input.setAttribute("id", `${resultArray[i]}`);
-    input.setAttribute("type", "checkbox");
-    let label = document.createElement("label");
-    label.setAttribute("for", `${resultArray[i]}`);
-    label.innerHTML = `${resultArray[i]}`;
-    li.appendChild(input);
-    li.appendChild(label);
-    ul.appendChild(li);
+    li.innerHTML = i;
+    list_container.appendChild(li);
   }
-
+  console.log(list_container);
   return true;
 }
-
-const test_dom = document.getElementById("dom-test");
-test_dom.innerHTML = "Dom Manipulate";
-console.log(test_dom);
 
 const cookieStorage = {
   getItem: (item) => {
