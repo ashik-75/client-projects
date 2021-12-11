@@ -27,6 +27,10 @@ async function getData() {
   return true;
 }
 
+const test_dom = document.getElementById("dom-test");
+test_dom.innerHTML = "Dom Manipulate";
+console.log(test_dom);
+
 const cookieStorage = {
   getItem: (item) => {
     const cookies = document.cookie
