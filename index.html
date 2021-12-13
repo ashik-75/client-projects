@@ -5,14 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+
     <title>Cookie</title>
     <style>
       * {
@@ -24,9 +17,12 @@
   </head>
   <body>
     <h1>concent poppup</h1>
+    <button id="play" style="padding: 10px; margin: 10px">
+      set third party cookie(demonstrate)
+    </button>
 
     <div id="consent-popup" class="hidden">
-      <i class="fas fa-times" id="close"></i>
+      <div id="close">X</div>
       <img src="./images/cokie-consent.png" alt="" />
       <div class="cookie-title">Your Privacy</div>
       <div class="cookie-message">
@@ -34,9 +30,10 @@
         cookies on your device and disclose information in accordance with our
         Cookie Policy.
       </div>
-      <div>
+      <form id="form">
         <ul id="more-options"></ul>
-      </div>
+      </form>
+
       <div id="dom-test"></div>
       <button id="deny">Deny All Cookies</button>
       <button id="accept">Accept All Cookies</button>

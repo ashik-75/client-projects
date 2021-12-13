@@ -1,5 +1,5 @@
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body #consent-popup {
@@ -14,13 +14,17 @@ body #consent-popup {
   padding: 30px;
 }
 
-body #consent-popup .fas {
-  font-size: 40px;
-  color: white;
+body #consent-popup #close {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
 }
 
 body #consent-popup img {
