@@ -177,11 +177,9 @@ body main .section-4 .part-1 .part-1-container .left {
 }
 body main .section-4 .part-1 .part-1-container .left img {
   width: 100%;
-  /* height: 300px; */
+  max-height: 300px;
   -o-object-position: center;
   object-position: center;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 body main .section-4 .part-1 .part-1-container .right {
   padding: 10px 0px;
@@ -350,11 +348,9 @@ body footer .email img {
   }
   body main .section-4 .part-1 .part-1-container .left img {
     width: 100%;
-    /* height: 300px; */
+    max-height: 300px;
     -o-object-position: center;
     object-position: center;
-    -o-object-fit: cover;
-    object-fit: cover;
   }
   body main .section-4 .part-1 .part-1-container .right {
     padding-left: 20px;
@@ -469,11 +465,9 @@ body footer .email img {
   }
   body main .section-4 .part-1 .part-1-container .left img {
     width: 100%;
-    /* height: 300px; */
+    max-height: 300px;
     -o-object-position: center;
     object-position: center;
-    -o-object-fit: cover;
-    object-fit: cover;
   }
   body main .section-4 .part-1 .part-1-container .right {
     padding-left: 20px;
